@@ -1,0 +1,84 @@
+on post-fs
+   # "Tap to wake" gesture
+   chown root input /sys/class/sensors/dt-gesture/enable
+   chmod 0660 /sys/class/sensors/dt-gesture/enable
+   chown root input /sys/class/sensors/dt-gesture/poll_delay
+   chmod 0660 /sys/class/sensors/dt-gesture/poll_delay
+
+on post-fs
+   chown system system /sys/devices/platform/soc/4804000.ufshc/clkgate_enable
+   chown system system /sys/devices/platform/soc/4804000.ufshc/devfreq/4804000.ufshc/min_freq
+
+import /vendor/etc/init/hw/init.vendor.st21nfc.rc
+
+#fps dual sensor
+service chipone_ident /vendor/bin/hw/chipone_ident
+    class late_start
+    user system
+    group system
+    oneshot
+    disabled
+
+service vendor.ident-fps-overlay-sh /vendor/bin/init.oem.fingerprint.overlay.sh
+    class core
+    user root
+    group drmrpc system
+    oneshot
+    disabled
+
+on post-fs-data
+    exec_start vendor.ident-fps-overlay-sh
+    chown system system /dev/fpsensor
+    chmod 0660 /dev/fpsensor
+    chown system system /sys/devices/platform/soc/soc:fm_wcn39x0/elna_en
+    chmod 0660 /sys/devices/platform/soc/soc:fm_wcn39x0/elna_en
+
+  # Change ownership and permission for cp-standalone factory testing
+  chown system system /sys/class/power_supply/cp-standalone/voltage_now
+  chown system system /sys/bus/iio/devices/iio:device5/in_index_sc8549_cp_enable_input
+  chmod 0644 /sys/class/power_supply/cp-standalone/voltage_now
+  chmod 0664 /sys/bus/iio/devices/iio:device5/in_index_sc8549_cp_enable_input
+
+on boot
+   # change permission for capsensor
+   chown system system /sys/class/capsense/reset
+   chown system system /sys/class/capsense/int_state
+   # Change ownership for capsensor
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch0/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch0/poll_delay
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch1/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch1/poll_delay
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch2/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch2/poll_delay
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch3/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch3/poll_delay
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch4/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch4/poll_delay
+   # vibrator hal need to access this sysfs node for AF noise issue
+   chown system system /sys/devices/platform/soc/soc:mot,cam-actuator/onekey_actuator
+   chmod 0660 /sys/devices/platform/soc/soc:mot,cam-actuator/onekey_actuator
+   # change permission for goodix TP
+   chmod 0666 /dev/gtp_tools
+
+service capsense_reset /system/vendor/bin/capsense_reset
+   class core
+   user system
+   group system input
+   disabled
+
+on property:sys.boot_completed=1
+    start capsense_reset
+
+on boot && property:ro.vendor.mot.gki.path=5.4-gki
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/nfc_i2c.ko
+
+on late-init
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi-smbcharger-iio.ko
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/qpnp_adaptive_charge.ko
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_parallel_charger_iio.ko
+    insmod /vendor/lib/modules/fm_ctrl.ko
+
+on charger
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi-smbcharger-iio.ko
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/qpnp_adaptive_charge.ko
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_parallel_charger_iio.ko

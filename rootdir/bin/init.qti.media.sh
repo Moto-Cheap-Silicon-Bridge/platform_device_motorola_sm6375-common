@@ -2,7 +2,7 @@
 #==============================================================================
 #       init.qti.media.sh
 #
-# Copyright (c) 2020-2021, Qualcomm Technologies, Inc.
+# Copyright (c) 2020-2022, Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -87,7 +87,7 @@ case "$target" in
         ;;
     "holi")
         case "$soc_hwid" in
-            507)
+            507|565)
                 setprop vendor.media.target_variant "_blair"
                 if [ $build_codename -le "12" ]; then
                     setprop vendor.netflix.bsp_rev "Q4350-32962-1"
