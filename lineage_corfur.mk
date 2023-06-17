@@ -24,6 +24,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT=corfur_g \
-    PRIVATE_BUILD_DESC="corfur_g-user 12 S2RUBS32M.51-15-9-5 76c7d7 release-keys"
+    PRIVATE_BUILD_DESC="corfur_g-user 12 S2RUBS32.51-15-9-7 8049b-fa5cf release-keys"
 
-BUILD_FINGERPRINT := motorola/corfur_g/corfur:12/S2RUBS32M.51-15-9-5/76c7d7:user/release-keys
+BUILD_FINGERPRINT := motorola/corfur_g/corfur:12/S2RUBS32.51-15-9-7/8049b-fa5cf:user/release-keys
