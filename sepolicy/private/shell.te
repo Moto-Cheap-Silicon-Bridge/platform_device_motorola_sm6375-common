@@ -1,0 +1,2 @@
+# Zygote
+allow shell zygote:unix_stream_socket getopt;
