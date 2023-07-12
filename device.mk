@@ -105,14 +105,27 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudiopreprocessing \
     libbundlewrapper \
+    liba2dpoffload \
+    libaudioroute \
+    libbatterylistener \
+    libcirrusspkrprot \
     libdownmix \
     libdynproc \
     libeffectproxy \
     libldnhncr \
+    libcomprcapture \
+    libexthwplugin \
+    libhdmiedid \
+    libhfp \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libreverbwrapper \
+    libsndmonitor \
+    libspkrprot \
     libvisualizer \
+    libtinycompress \
+    libvolumelistener \
     sound_trigger.primary.holi
 
 PRODUCT_COPY_FILES += \
@@ -170,7 +183,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.2.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.3.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
