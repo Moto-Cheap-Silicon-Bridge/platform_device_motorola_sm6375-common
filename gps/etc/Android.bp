@@ -5,14 +5,18 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-
     name: "flp.conf",
     vendor: true,
     src: "flp.conf",
 }
 
 prebuilt_etc {
+    name: "gnss_antenna_info.conf",
+    vendor: true,
+    src: "gnss_antenna_info.conf",
+}
 
+prebuilt_etc {
     name: "gps.conf",
     vendor: true,
     src: "gps.conf",
@@ -40,13 +44,6 @@ prebuilt_etc {
     name: "xtwifi.conf",
     vendor: true,
     src: "xtwifi.conf",
-}
-
-prebuilt_etc {
-
-    name: "gnss_antenna_info.conf",
-    vendor: true,
-    src: "gnss_antenna_info.conf",
 }
 
 prebuilt_etc {
