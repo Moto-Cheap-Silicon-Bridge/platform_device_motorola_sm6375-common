@@ -62,7 +62,7 @@ system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio configs
-etc/audio_effects.conf:vendor/etc/audio_effects.conf
+#etc/audio_effects.conf:vendor/etc/audio_effects.conf
 vendor/etc/audio_effects.xml
 vendor/etc/audio_ext_spkr.conf
 vendor/etc/audio_io_policy.conf
@@ -250,6 +250,7 @@ vendor/lib64/libfcell.so
 vendor/lib64/libipebpsstriping.so
 vendor/lib64/libipebpsstriping170.so
 vendor/lib64/libjpege.so
+vendor/lib64/liblowlight_ai_portrait.arcsoft.so
 vendor/lib64/libmfec.so
 vendor/lib64/libmmcamera_bestats.so
 vendor/lib64/libmmcamera_cac3.so
@@ -638,6 +639,7 @@ vendor/lib/vendor.qti.diaghal@1.0.so
 vendor/lib64/vendor.qti.diaghal@1.0.so
 
 # Display (HDR)
+vendor/lib64/libhdr_stub.so
 vendor/lib64/libhdr_tm.so
 
 # Display (HWC)
@@ -937,6 +939,7 @@ vendor/etc/media_profiles_vendor.xml
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
 vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc
 -vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml
+vendor/lib64/libhexagon_nn_stub.so
 vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-gpu.so
 vendor/lib64/unnhal-acc-hvx.so
@@ -1721,64 +1724,3 @@ vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfdutils_proprietary.so
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
-
-# MESS
-vendor/lib64/ftm_fm_lib.so
-vendor/lib64/libEGL_adreno.so
-vendor/lib64/libGLESv2_adreno.so
-vendor/lib64/libI420colorconvert.so
-vendor/lib64/libQTEEConnector_listener.so
-vendor/lib64/libadspd.so
-vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudioconfigstore.so
-vendor/lib64/libaudioparsers.so
-vendor/lib64/libbt-hidlclient.so
-vendor/lib64/libdapparamstorage.so
-vendor/lib64/libdeccfg.so
-vendor/lib64/libdiagjni.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/libdlbpreg.so
-vendor/lib64/libembmsservice.so
-vendor/lib64/libhdcpsrm.so
-vendor/lib64/libhdmipassthru.so
-vendor/lib64/libhdr_stub.so
-vendor/lib64/libhexagon_nn_stub.so
-vendor/lib64/libiqi_bridge.so
-vendor/lib64/liblowlight_ai_portrait.arcsoft.so
-vendor/lib64/libmctfengine_stub.so
-vendor/lib64/libmdsprpc.so
-vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libmm-hdcpmgr.so
-vendor/lib64/libnative-api.so
-vendor/lib64/libpasrutils.so
-vendor/lib64/libpowercallback.so
-vendor/lib64/libq3dtools_adreno.so
-vendor/lib64/libqc2colorconvertfilter.so
-vendor/lib64/libqc2filter.so
-vendor/lib64/libqdma_file_agent.so
-vendor/lib64/libqmi_csvt_srvc.so
-vendor/lib64/libqmiextservices.so
-vendor/lib64/libqtbase.so
-vendor/lib64/libqtjsonhelper.so
-vendor/lib64/libqtnodes.so
-vendor/lib64/libqttestclient.so
-vendor/lib64/libqttestservice.so
-vendor/lib64/libreffeature.so
-vendor/lib64/libremosaiclib.so
-vendor/lib64/librmsclib1.so
-vendor/lib64/libskewknob.so
-vendor/lib64/libsmemlog.so
-vendor/lib64/libsns_registry_skel.so
-vendor/lib64/libsoc_helper_jni.so
-vendor/lib64/libstfactory-vendor.so
-vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/libtcmd_diag.so
-vendor/lib64/libtensorflowlite.so
-vendor/lib64/libtpa.so
-vendor/lib64/libverdict.so
-vendor/lib64/libwebrtc_audio_preprocessing.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.common@1.0.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.config@1.0.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.device@1.0.so
