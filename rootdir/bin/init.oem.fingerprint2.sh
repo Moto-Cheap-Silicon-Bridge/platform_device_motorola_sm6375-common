@@ -22,11 +22,10 @@ MAX_TIMES=20
 
 if [ ! -f $persist_fps_id ]; then
     log "warn: no associated persist file found"
-    return -1
+    exit -1
 fi
 FPS_VENDOR_NONE=none
 FPS_VENDOR_FPC=fpc
-FPS_VENDOR_GOODIX=goodix
 
 prop_fps_status=vendor.hw.fingerprint.status
 prop_persist_fps=persist.vendor.hardware.fingerprint
@@ -56,9 +55,9 @@ for i in $(seq 1 2)
 do
 
 setprop $prop_fps_status $FPS_STATUS_NONE
-if [ $fps == $FPS_VENDOR_GOODIX ]; then
-    log "start goodix_hal"
-    start goodix_hal
+if [ $fps != $FPS_VENDOR_FPC ]; then
+    log "start fpc_hal"
+    start fps_hal
 else
     log "start fpc_hal"
     start fps_hal
@@ -81,24 +80,18 @@ if [ $fps_status == $FPS_STATUS_OK ]; then
     log "HAL success"
     setprop $prop_persist_fps $fps
     if [ $fps_vendor2 == $fps ]; then
-        return 0
+        exit 0
     fi
     log "- update FPS vendor (last)"
     echo $fps > $persist_fps_id2
     log "- done"
-    return 0
+    exit 0
 fi
 
 if [ $fps == $fps_vendor2 ]; then
-    if [ $fps == $FPS_VENDOR_GOODIX ]; then
-        rmmod goodix_fod_mmi
-        insmod /vendor/lib/modules/$GKI_PATH/fpc1020_mmi.ko
-        fps=$FPS_VENDOR_FPC
-    else
-        rmmod fpc1020_mmi
-        insmod /vendor/lib/modules/$GKI_PATH/goodix_fod_mmi.ko
-        fps=$FPS_VENDOR_GOODIX
-    fi
+    rmmod fpc1020_mmi
+    insmod /vendor/lib/modules/$GKI_PATH/fpc1020_mmi.ko
+    fps=$FPS_VENDOR_FPC
     log "- update FPS vendor"
     echo $fps > $persist_fps_id
     sleep 1
@@ -108,7 +101,7 @@ else
     echo $FPS_VENDOR_NONE > $persist_fps_id
 
     log "- done"
-    return 1
+    exit 1
 fi
 
 done
