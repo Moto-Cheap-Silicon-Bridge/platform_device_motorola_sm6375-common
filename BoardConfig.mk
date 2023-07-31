@@ -65,7 +65,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)-kernel/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
     $(DEVICE_PATH)-kernel/kernel:kernel \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/ramdisk-modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/vendor-modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/vendor-modules/,$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules)
 
 # Kernel Modules
 #BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
@@ -83,13 +83,15 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
+    odm \
     product \
     system \
     system_ext \
     vbmeta \
     vbmeta_system \
     vendor \
-    vendor_boot
+    vendor_boot \
+    vendor_dlkm
 
 # Audio
 AUDIO_FEATURE_ENABLED_AHAL_EXT := false
@@ -158,19 +160,25 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 102247673856
 #endif
 #BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 30720000
 BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
-BOARD_MOT_DP_GROUP_PARTITION_LIST := product system system_ext vendor
+
+BOARD_MOT_DP_GROUP_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
 BOARD_SUPER_PARTITION_GROUPS := mot_dp_group
 BOARD_MOT_DP_GROUP_SIZE := 7255617536 # ( BOARD_SUPER_PARTITION_SIZE/2 - 4MB )
 BOARD_SUPER_PARTITION_SIZE := 14512291840
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+
+TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
@@ -200,9 +208,9 @@ VENDOR_SECURITY_PATCH := 2023-05-01
 # SELinux
 include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
-PRODUCT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+#BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+#PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+#PRODUCT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
