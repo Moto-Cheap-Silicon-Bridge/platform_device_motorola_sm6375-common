@@ -62,12 +62,9 @@ system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio configs
-#etc/audio_effects.conf:vendor/etc/audio_effects.conf
-vendor/etc/audio_effects.xml
 vendor/etc/audio_ext_spkr.conf
 vendor/etc/audio_io_policy.conf
 vendor/etc/audio_platform_info.xml
-vendor/etc/audio_policy_configuration.xml
 vendor/etc/audio_policy_volumes.xml
 vendor/etc/default_volume_tables.xml
 vendor/etc/mixer_paths.xml
