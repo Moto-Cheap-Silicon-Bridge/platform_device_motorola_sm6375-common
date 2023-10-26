@@ -168,6 +168,9 @@ TARGET_RECOVERY_WIPE := $(COMMON_PATH)/recovery/recovery.wipe
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /vendor/fsg:/fsg
+
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
