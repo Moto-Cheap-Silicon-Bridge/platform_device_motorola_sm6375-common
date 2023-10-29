@@ -43,6 +43,7 @@ moto_f_usbnet.ko
 watchdogtest.ko
 qpnp_adaptive_charge.ko
 fpc1020_mmi.ko
+goodix_fod_mmi.ko
 wl2864c.ko
 wl2866d.ko
 cci_intf.ko
