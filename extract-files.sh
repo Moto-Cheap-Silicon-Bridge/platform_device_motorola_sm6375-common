@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=corfur
+DEVICE=sm6375-common
 VENDOR=motorola
 
 # Load extract_utils and do some sanity checks

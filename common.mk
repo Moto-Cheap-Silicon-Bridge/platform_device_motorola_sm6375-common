@@ -13,20 +13,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2400
-TARGET_SCREEN_WIDTH := 1080
-
-# Screen
-TARGET_SCREEN_DENSITY := 420
-
-# AAPT
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := 420dpi
-PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
-
-PRODUCT_SHIPPING_API_LEVEL := 30
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
@@ -44,13 +30,12 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     WifiResTarget
 
-PRODUCT_PACKAGES += \
-    FrameworksResCorfur \
-    LineageSystemUICorfur \
-    SettingsProviderResCorfur \
-    SystemUIResCorfur
-
 # A/B
+ifeq ($(TARGET_IS_VAB),true)
+# Inherit virtual_ab_ota product
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+endif
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -114,23 +99,6 @@ PRODUCT_PACKAGES += \
     libreverbwrapper \
     libvisualizer \
     sound_trigger.primary.holi
-
-#    libaudioroute \
-#    libbatterylistener \
-#    libcirrusspkrprot \
-#    libcomprcapture \
-#    libexthwplugin \
-#    libhdmiedid \
-#    libhfp \
-#    libqcompostprocbundle \
-#    libsndmonitor \
-#    libspkrprot \
-#    libtinycompress \
-#    libvolumelistener \
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
@@ -203,17 +171,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1.vendor \
-    com.motorola.hardware.biometric.fingerprint@1.0.vendor
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
-    $(LOCAL_PATH)/configs/idc/uinput_nav.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput_nav.idc \
-    $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/configs/keylayout/uinput_nav.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput_nav.kl
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -297,16 +254,6 @@ PRODUCT_PACKAGES += \
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
-
-# NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2.vendor \
-    android.hardware.nfc@1.2-service.st \
-    android.hardware.secure_element@1.2.vendor \
-    com.android.nfc_extras \
-    libchrome.vendor \
-    Tag \
-    nfc_nci.st21nfc.default
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -503,4 +450,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit from vendor blobs
-$(call inherit-product, vendor/motorola/corfur/corfur-vendor.mk)
+$(call inherit-product, vendor/motorola/sm6375-common/sm6375-common-vendor.mk)
