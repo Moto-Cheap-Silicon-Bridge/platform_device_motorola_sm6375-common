@@ -408,12 +408,6 @@ on property:vendor.hw.touch.status="ready"
 on property:ro.boot.revision=*
     setprop ro.boot.hardware.revision ${ro.boot.revision}
 
-service vendor.charge_only_mode /vendor/bin/charge_only_mode
-    user root
-    group graphics system input
-    capabilities SYS_BOOT
-    disabled
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
         -o /data/user_de/0/com.android.shell/files/bugreports/bugreport

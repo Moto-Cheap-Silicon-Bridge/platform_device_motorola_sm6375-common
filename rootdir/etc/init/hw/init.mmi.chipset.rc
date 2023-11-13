@@ -1,6 +1,3 @@
-# Charge only mode configuration
-import /vendor/etc/init/hw/init.mmi.charge_only.rc
-
 on property:ro.build.type=userdebug && property:ro.vendor.mot.gki.path=*
     insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/watchdogtest.ko
 
