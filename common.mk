@@ -449,5 +449,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-3.9.1-vendorcompat \
+    libprotobuf-cpp-lite-3.9.1-vendorcompat
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6375-common/sm6375-common-vendor.mk)
