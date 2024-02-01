@@ -1161,4 +1161,14 @@
     <avb>
         <vbmeta-version>1.0</vbmeta-version>
     </avb>
+    
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.ims</name>
+       <interface>
+           <name>IRadioIms</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+           <instance>slot3</instance>
+       </interface>
+    </hal>
 </compatibility-matrix>
