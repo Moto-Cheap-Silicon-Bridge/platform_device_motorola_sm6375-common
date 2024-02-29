@@ -1,7 +1,9 @@
 [
   {
-    "repository": "android_kernel_motorola_sm6375",
-    "target_path": "kernel/motorola/sm6375"
+    "repository": "moto-common/android_kernel_motorola_msm-5.4",
+    "target_path": "kernel/motorola/msm-5.4",
+    "revision": "14",
+    "remote": "github"
   },
   {
     "repository": "android_hardware_motorola",
