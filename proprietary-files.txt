@@ -114,6 +114,9 @@ vendor/lib64/libcdsprpc.so
 vendor/lib64/libcdfw.so
 vendor/lib64/libcdfw_remote_api.so
 
+# Cacert
+vendor/lib64/vendor.qti.hardware.cacert@1.0.so
+
 # Charger
 vendor/bin/charge_only_mode
 vendor/bin/hvdcp_opti
@@ -912,6 +915,7 @@ system_ext/lib64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
+system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdaemon
 vendor/etc/init/ims_rtp_daemon.rc

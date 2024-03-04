@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     audio.primary.holi \
     audio.r_submix.default \
     audio.usb.default \
+    liba2dpoffload \
     libaudiopreprocessing \
     libbundlewrapper \
     libdownmix \
