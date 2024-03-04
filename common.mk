@@ -98,6 +98,10 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libreverbwrapper \
     libvisualizer \
+    libhdmiedid \
+    libhfp \
+    libsndmonitor \
+    libspkrprot \
     sound_trigger.primary.holi
 
 PRODUCT_COPY_FILES += \
