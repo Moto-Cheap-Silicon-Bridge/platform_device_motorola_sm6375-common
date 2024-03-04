@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from bangkk_g-user 13 T3TC33.18-27-4 c126e-0f261c release-keys.
+# All unpinned blobs below are extracted from fogos_g-user 14 U1UG34.23-28-2 8dca85 release-keys.
 
 # ADSP
 vendor/bin/adsprpcd
@@ -109,6 +109,10 @@ vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
+
+# CDFW
+vendor/lib64/libcdfw.so
+vendor/lib64/libcdfw_remote_api.so
 
 # Charger
 vendor/bin/charge_only_mode
@@ -701,6 +705,7 @@ system_ext/bin/qspmsvc
 system_ext/etc/init/qspmsvc.rc
 system_ext/lib64/libqspmsvc.so
 system_ext/lib64/vendor.qti.qspmhal@1.0.so
+system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so
 vendor/bin/vendor.qti.qspmhal@1.0-service
 vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc
 vendor/etc/seccomp_policy/qspm.policy
@@ -939,6 +944,8 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.8.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.9.so
 vendor/lib64/vendor.qti.ims.callcapability@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.configservice@1.0.so
