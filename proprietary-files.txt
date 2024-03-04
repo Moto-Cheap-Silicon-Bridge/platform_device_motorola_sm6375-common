@@ -888,7 +888,7 @@ system/etc/permissions/moto-telephony.xml:system_ext/etc/permissions/moto-teleph
 system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 
 # Radio - IMS (APK) - from bangkk patched
--system_ext/priv-app/ims/ims.apk
+-system_ext/priv-app/ims/ims.apk|25e2143c555eefa20eecde03b44ae81cd0eaed9b
 
 # RIL - IMS
 -system_ext/app/ImsRcsService/ImsRcsService.apk
