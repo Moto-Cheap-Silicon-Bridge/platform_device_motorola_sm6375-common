@@ -659,6 +659,22 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
+# QCC
+system_ext/bin/qccsyshal@1.2-service
+system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc
+system_ext/lib/libqcc_file_agent_sys.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.1.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.2.so
+system_ext/lib64/libqcc_file_agent_sys.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.1.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
+vendor/lib/vendor.qti.hardware.qccsyshal@1.0.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+
 # QMI
 system/etc/permissions/privapp-permissions-qti.xml
 system/etc/sysconfig/qti_whitelist.xml
