@@ -889,6 +889,7 @@ system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 
 # Radio - IMS (APK) - from bangkk patched
 -system_ext/priv-app/ims/ims.apk|25e2143c555eefa20eecde03b44ae81cd0eaed9b
+system_ext/lib64/libimsmedia_jni.so|5b34af19636863d22e5e7b4f20136564e6ee2222
 
 # RIL - IMS
 -system_ext/app/ImsRcsService/ImsRcsService.apk
@@ -912,7 +913,6 @@ system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
 system_ext/lib64/libdiag_system.so
 system_ext/lib64/libimscamera_jni.so
-system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
