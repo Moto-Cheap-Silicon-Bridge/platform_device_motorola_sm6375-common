@@ -544,5 +544,15 @@
         </interface>
         <fqname>@1.0::IQspmhal/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qccsyshal</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IQccsyshal</name>
+            <instance>qccsyshal</instance>
+        </interface>
+        <fqname>@1.2::IQccsyshal/qccsyshal</fqname>
+    </hal>
     <kernel target-level="5"/>
 </manifest>
