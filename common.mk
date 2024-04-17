@@ -349,6 +349,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
+# RILD
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.1.vendor \
+    android.hardware.secure_element@1.2.vendor
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
