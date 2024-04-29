@@ -64,6 +64,10 @@ function blob_fixup() {
         vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml)
             sed -ni '/default9/!p' "${2}"
             ;;
+        vendor/etc/qcril_database/qcrilNr.db|\
+        vendor/etc/qcril_database/upgrade/config/*)
+            sed -i '/persist.vendor.radio.poweron_opt/ s/1/0/g' "${2}"
+            ;;
     esac
 }
 
