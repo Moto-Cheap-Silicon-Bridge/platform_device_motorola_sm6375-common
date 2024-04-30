@@ -1,0 +1,9 @@
+# All unpinned blobs below are extracted from fogos_g-user 14 U1UG34.23-28-2 8dca85 release-keys.
+
+# FM
+system_ext/lib64/fm_helium.so
+system_ext/lib64/libfm-hci.so
+-system_ext/lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib64/ftm_fm_lib.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
