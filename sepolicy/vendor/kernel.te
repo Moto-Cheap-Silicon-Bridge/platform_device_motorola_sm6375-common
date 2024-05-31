@@ -5,3 +5,5 @@ allow kernel {
 	vendor_hw_block_device
 	vendor_utags_block_device
 }:blk_file rw_file_perms;
+
+allow kernel mnt_vendor_persist_audio_file:file { open read };
