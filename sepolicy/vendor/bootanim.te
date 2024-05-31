@@ -1,0 +1,2 @@
+allow bootanim vendor_hal_qspmhal_default:binder call;
+

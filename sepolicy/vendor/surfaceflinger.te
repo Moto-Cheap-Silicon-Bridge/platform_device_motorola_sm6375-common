@@ -1,0 +1,2 @@
+allow surfaceflinger vendor_hal_qspmhal_default:binder call;
+
