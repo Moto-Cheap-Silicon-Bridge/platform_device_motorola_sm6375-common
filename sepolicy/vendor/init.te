@@ -22,6 +22,8 @@ recovery_only(`
   allow init rootfs:system module_load;
 ')
 
+allow init sdd_device:blk_file { relabelto };
+
 allow init vendor_sysfs_sde_queue:file rw_file_perms;
 
 allow init vendor_sysfs_vibrator:file create_file_perms;
