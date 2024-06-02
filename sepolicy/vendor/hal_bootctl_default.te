@@ -1,5 +1,6 @@
 allow hal_bootctl_default vendor_uefi_block_device:blk_file getattr;
 allow hal_bootctl_default {
+    sdd_device
     vendor_efs_boot_dev
     vendor_modem_efs_partition_device
 }:blk_file rw_file_perms;

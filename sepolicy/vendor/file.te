@@ -36,6 +36,9 @@ type vendor_sysfs_dt2w, fs_type, sysfs_type;
 # SKU version
 type vendor_sysfs_sku_version, fs_type, sysfs_type;
 
+# sdd device
+type sdd_device, dev_type;
+
 # Touchscreen
 type vendor_sysfs_touchpanel, fs_type, sysfs_type;
 
