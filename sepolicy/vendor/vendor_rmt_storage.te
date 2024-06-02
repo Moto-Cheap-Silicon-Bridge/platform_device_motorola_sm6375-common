@@ -2,4 +2,3 @@ get_prop(vendor_rmt_storage, vendor_radio_prop)
 allow vendor_rmt_storage {
     sdd_device
 }:blk_file { rw_file_perms };
-
