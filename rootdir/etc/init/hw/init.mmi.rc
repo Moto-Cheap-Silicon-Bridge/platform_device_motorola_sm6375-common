@@ -341,6 +341,10 @@ on property:sys.boot_completed=1 && property:ro.vendor.zram.product_swapon=""
 on property:sys.sysctl.swappiness=*
     write /proc/sys/vm/swappiness ${sys.sysctl.swappiness}
 
+# translate MMI property in order to keep the consistent with QCOM
+on property:ro.vendor.hw.dualsim=true
+   setprop persist.radio.multisim.config dsds
+
 service vendor.mmi-touch-sh /vendor/bin/init.mmi.touch.sh
     class core
     user root
