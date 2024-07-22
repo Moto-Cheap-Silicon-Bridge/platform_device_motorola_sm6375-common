@@ -91,7 +91,7 @@ vendor.audio.feature.audiozoom.enable=false
 vendor.audio.feature.snd_mon.enable=true
 
 # Audio steps
-ro.config.media_vol_steps=30
+ro.config.media_vol_steps=15
 ro.config.vc_call_vol_steps=8
 
 # Bluetooth
