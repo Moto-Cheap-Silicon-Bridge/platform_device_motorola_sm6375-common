@@ -2,6 +2,7 @@ allow hal_fingerprint_default {
   etsd_device
   egis_device
   goodix_device
+  fpsensor_device
   tee_device
 }: chr_file rw_file_perms;
 

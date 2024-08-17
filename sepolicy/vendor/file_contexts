@@ -58,6 +58,7 @@
 /data/vendor/gf_data(/.*)?                              u:object_r:fingerprint_vendor_data_file:s0
 /dev/esfp0                                              u:object_r:egis_device:s0
 /dev/goodix_fp                                          u:object_r:goodix_device:s0
+/dev/fpsensor                                           u:object_r:fpsensor_device:s0
 /sys/devices/soc/0.et320(/.*)?                          u:object_r:vendor_sysfs_fingerprint:s0
 
 # IFAA
