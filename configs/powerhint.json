@@ -16,6 +16,7 @@
       "Values": [
         "9999999",
         "1651200",
+        "1516800",
         "691200"
       ],
       "ResetOnInit": true
@@ -353,7 +354,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "1516800"
     },
     {
       "PowerHint": "INTERACTION",
