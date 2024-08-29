@@ -149,3 +149,16 @@ then
 else
 	setprop ro.vendor.bootreason ${bootreason_kvp##* }
 fi
+
+# export WFD HDCP key state which should be done in factory
+wfd_complete_file="/mnt/vendor/persist/wfd_complete"
+wfd_hdcp_state="no provisioned"
+if [ -f "$wfd_complete_file" ]; then
+	setprop ro.vendor.mot.hw.wfd_hdcp_key_state 1
+	wfd_hdcp_state="already provisioned"
+else
+	setprop ro.vendor.mot.hw.wfd_hdcp_key_state 0
+fi
+notice "WFD HDCP key state on device is: $wfd_hdcp_state"
+unset $wfd_complete_file
+unset $wfd_hdcp_state

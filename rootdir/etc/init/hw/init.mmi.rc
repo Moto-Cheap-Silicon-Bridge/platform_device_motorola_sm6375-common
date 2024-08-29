@@ -39,6 +39,7 @@ on early-init
     setprop ro.vendor.boot.powerup_reason ${ro.boot.powerup_reason}
     setprop ro.vendor.boot.bl_state ${ro.boot.bl_state}
     setprop ro.vendor.boot.serialno ${ro.boot.serialno}
+    setprop ro.vendor.boot.nal_id ${ro.boot.nal_id}
     setprop ro.vendor.zygote ${ro.zygote}
     setprop persist.radio.multisim.config ${persist.vendor.radio.multisim.config}
 
@@ -75,6 +76,7 @@ on post-fs && property:ro.vendor.hw.fsg_super_image=yes
 
 on post-fs
     mkdir /mnt/vendor/persist/camera 0755 vendor_tcmd vendor_tcmd
+    mkdir /mnt/vendor/persist/camera/iqtuning 0755 vendor_tcmd vendor_tcmd
     mkdir /mnt/vendor/persist/camera/dualcal 0775 camera vendor_tcmd
     mkdir /mnt/vendor/persist/camera/focus 0775 camera vendor_tcmd
     mkdir /mnt/vendor/persist/camera/ledcal 0775 camera vendor_tcmd
@@ -141,6 +143,9 @@ on post-fs
     setprop sys.sysctl.swappiness 100
 
 on post-fs-data
+    # re-lable wfd_complete with vendor_persist_wfd_file, otherwise will be vendor_persist_file
+    restorecon /mnt/vendor/persist/wfd_complete
+
     # Setup folders for security
     mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
     mkdir /data/vendor/dbvc 0750 vendor_tcmd shell
@@ -246,6 +251,9 @@ on post-fs-data
     # Imager tuning data for camera subsystem
     mkdir /data/vendor/misc/imager 0771 camera camera
 
+    # Imager tuning metadata for camera subsystem
+    mkdir /data/vendor/misc/imager/metadata 0771 camera camera
+
     # NFC vendor data
     mkdir /data/vendor/nfc 0770 nfc nfc
 
@@ -272,6 +280,12 @@ on boot
 
  # Change ownership and permission for leds backlight
    chmod 0664 /sys/class/leds/lcd-backlight/brightness
+   chown system system /sys/class/leds/charging/brightness
+   chmod 0664 /sys/class/leds/charging/brightness
+
+   # change permission of red leds
+   chown system system /sys/class/leds/red/brightness
+   chmod 0664 /sys/class/leds/red/brightness
 
    # Change ownership and permission for vibrator
    chown system system /sys/class/timed_output/vibrator/enable

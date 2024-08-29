@@ -85,6 +85,7 @@ case "$baseband" in
     if [ "$qcrild_status" = "true" ]; then
         # Make sure both rild, qcrild are not running at same time.
         # This is possible with vanilla aosp system image.
+
         start vendor.qcrild
     fi
 

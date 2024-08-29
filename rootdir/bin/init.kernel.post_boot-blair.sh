@@ -72,6 +72,11 @@ function configure_zram_parameters() {
 }
 
 function configure_read_ahead_kb_values() {
+	# Moto yangbq2: Skip this if we are using zram from fstab.
+	using_zram_from_fstab=`getprop ro.boot.using_zram_from_fstab`
+	if [ "$using_zram_from_fstab" == "true" ]; then
+		return
+	fi
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
 
@@ -107,8 +112,8 @@ function configure_memory_parameters() {
 	configure_zram_parameters
 	configure_read_ahead_kb_values
 
-	#Spawn 2 kswapd threads which can help in fast reclaiming of pages
-	echo 2 > /proc/sys/vm/kswapd_threads
+	#Spawn 1 kswapd threads which can help in fast reclaiming of pages
+	echo 1 > /proc/sys/vm/kswapd_threads
 }
 
 # Core control parameters for silver
