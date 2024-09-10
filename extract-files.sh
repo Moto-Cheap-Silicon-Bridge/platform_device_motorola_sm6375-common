@@ -68,6 +68,10 @@ function blob_fixup() {
         vendor/etc/qcril_database/upgrade/config/*)
             sed -i '/persist.vendor.radio.poweron_opt/ s/1/0/g' "${2}"
             ;;
+        vendor/lib64/libwvhidl.so)
+            [ "$2" = "" ] && return 0
+            grep -q libcrypto_shim.so "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
+            ;;
     esac
 }
 
