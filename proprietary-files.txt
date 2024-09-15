@@ -549,7 +549,7 @@ vendor/etc/media_profiles_holi.xml
 vendor/etc/media_profiles_vendor.xml
 
 # OEM
-vendor/etc/vhw.xml
+vendor/bin/motobox
 
 # OMX
 vendor/lib/libAlacSwDec.so
