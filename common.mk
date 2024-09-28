@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon_Sys \
     WifiResCommon_Sys \
     FrameworksResTarget \
-    WifiResTarget
+    WifiResTarget \
+    EuiccOverlayMotoHoli
 
 # A/B
 ifeq ($(TARGET_IS_VAB),true)
