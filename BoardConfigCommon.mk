@@ -49,7 +49,7 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc LLVM=1
-TARGET_KERNEL_SOURCE := kernel/motorola/msm-5.4
+TARGET_KERNEL_SOURCE ?= kernel/motorola/msm-5.4
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
