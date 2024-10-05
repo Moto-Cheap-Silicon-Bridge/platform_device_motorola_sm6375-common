@@ -1,4 +1,4 @@
-#
+
 # Copyright (C) 2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -133,9 +133,6 @@ PRODUCT_PACKAGES += \
     libutilscallstack.vendor \
     libyuv.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
-
-# Charger
-WITH_LINEAGE_CHARGER := false
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
