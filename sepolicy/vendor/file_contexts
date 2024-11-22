@@ -46,15 +46,11 @@
 /(vendor|system/vendor)/bin/fpc_ident                   u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/chipone_ident               u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/goodix_ident                u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.dubai           u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.miami           u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-ets              u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-focalservice             u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-fpc              u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-chipone          u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.berlin          u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.berlna          u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xpeng           u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/.fps(/.*)?                                 u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/egis(/.*)?                                 u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/focaltech(/.*)?                            u:object_r:fingerprint_vendor_data_file:s0
@@ -71,13 +67,6 @@
 
 # Label read_ahead_kb in /data partition
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_scsi_host:s0
-
-# Lights
-/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.berlna                                         u:object_r:hal_light_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.xpeng                                          u:object_r:hal_light_default_exec:s0
-
-# LiveDisplay
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.motorola_lahaina    u:object_r:hal_lineage_livedisplay_qti_exec:s0
 
 # Motobox
 /(vendor|system/vendor)/bin/motobox                     u:object_r:vendor_motobox_exec:s0
@@ -98,8 +87,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service\.st        u:object_r:hal_secure_element_default_exec:s0
 
 # Touch
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.(berlin|berlna)               u:object_r:hal_lineage_touch_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xpeng                         u:object_r:hal_lineage_touch_default_exec:s0
 /sys/devices/platform/soc/a94000\.spi/spi_master/spi0/spi0\.0/touchscreen/(primary|NVT-ts)(/.*)?  u:object_r:vendor_sysfs_touchpanel:s0
 /sys/devices/platform/soc/998000\.spi/spi_master/spi0/spi0\.0/touchscreen/(primary|NVT-ts)(/.*)?  u:object_r:vendor_sysfs_touchpanel:s0
 /sys/devices/platform/soc/4a80000\.spi/spi_master/spi0/spi0\.0/touchscreen/primary(/.*)?          u:object_r:vendor_sysfs_touchpanel:s0
